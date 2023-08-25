@@ -22,8 +22,8 @@
   width: 35px;
   height: 30px;
   position: fixed;
-  top: 50px;
-  right: 50px;
+  top: 20px;
+  left: 20px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -53,6 +53,7 @@
 .open .line-3 {
   transform: rotateZ(405deg) translate(-8px, -6px);
   background: var(--lighter-color);
+  width: 100%;
 }
 
 nav {
@@ -65,7 +66,8 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: left 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+  z-index: 6;
 }
 .open {
   left: 0;
@@ -121,7 +123,7 @@ nav {
 .desc-landing {
   margin: 32px 0 48px 0;
 }
-.cta-btn,
+
 .cake-cta {
   background: var(--darker-color);
   color: var(--lighter-color);
@@ -159,6 +161,8 @@ nav {
 }
 .cake-card img {
   width: 60%;
+  cursor: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' height='48' viewBox='0 -960 960 960' width='48'%3e%3cpath d='M160-80q-17 0-28.5-11.5T120-120v-219q0-24.75 17.625-42.375T180-399h27v-182q0-24.75 17.625-42.375T267-641h183v-64q-20-14-30.5-30.534T409-775.411q0-14.589 5.5-28.089Q420-817 430-827l50-53 50 53q10 10 16 23.5t6 28.089q0 23.343-11 39.877Q530-719 510-705v64h183q24.75 0 42.375 17.625T753-581v182h27q24.75 0 42.375 17.625T840-339v219q0 17-11.5 28.5T800-80H160Zm107-319h426v-182H267v182Zm-87 259h600v-199H180v199Zm87-259h426-426Zm-87 259h600-600Zm600-259H180h600Z'/%3e%3c/svg%3e "),
+    default;
 }
 .card-header {
   font-family: "Wendy One", sans-serif;
@@ -180,6 +184,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   border: 2px solid var(--darker-color);
+  width: fit-content;
   border-radius: 8px;
   padding: 5px 10px;
 }
@@ -188,11 +193,21 @@ nav {
   font-size: 20px;
   font-weight: 900;
 }
+.numbers-wrapper span:first-child,
+.numbers-wrapper span:last-child {
+  cursor: pointer;
+}
 .numbers-wrapper span:nth-child(2) {
   margin: 0 20px;
 }
 .cake-cta {
   padding: 11px 30px;
+  cursor: pointer;
+  transition: background 0.5s ease-in-out, color 1s linear;
+}
+.cake-cta:hover {
+  background: var(--lighter-color);
+  color: var(--darker-color);
 }
 .header-story {
   margin: 212px 0 0 0;
@@ -250,10 +265,64 @@ footer .header span {
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  transition: background 0.5s ease-in-out;
+  cursor: pointer;
+}
+.cta-sign-up:hover {
+  background: #f7cfda;
 }
 .footer-links {
   padding: 65px 0;
 }
 .footer-links div {
   margin: 0 0 32px 0;
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out, color 1s ease-in-out;
+}
+.footer-links div:hover {
+  transform: scale(1.01);
+  color: #f7cfda;
+}
+
+/* fliping */
+.cta-btn {
+  background: var(--darker-color);
+  color: var(--lighter-color);
+  width: fit-content;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.cta-btn div {
+  position: absolute;
+  width: 206px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  transition: transform 2s ease-in-out;
+  backface-visibility: hidden;
+  padding: 5px 10px;
+  transform: perspective(500px) rotateX(0deg);
+}
+
+.cta-btn .front {
+  border-radius: 8px;
+  background: var(--darker-color);
+  color: var(--lighter-color);
+}
+.cta-btn:hover .front {
+  transform: perspective(500px) rotateX(180deg);
+}
+.cta-btn .back {
+  border-radius: 8px;
+
+  background: var(--lighter-color);
+  color: var(--darker-color);
+  transform: perspective(500px) rotateX(180deg);
+}
+.cta-btn:hover .back {
+  transform: perspective(500px) rotateX(360deg);
 }
