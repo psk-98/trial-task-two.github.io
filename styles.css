@@ -348,21 +348,36 @@ footer .header span {
     display: flex;
     flex-direction: column;
   }
+  .three-cakes {
+    margin: 100px 0 200px 0;
+  }
   .why {
     flex-direction: row-reverse;
+    justify-content: space-between;
   }
   .why-details {
     margin: 0 0 0 56px;
+    width: 60%;
   }
+  .desc-more {
+    width: 70%;
+  }
+  .one-cake {
+    margin: 0 0 200px 0;
+  }
+
   .cakes-wrapper {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: flex-end;
-    margin: 0 0 150px 0;
+    margin: 150px 0;
   }
   .cake-card {
     width: 40%;
+  }
+  .cards-actions-wrapper {
+    justify-content: space-around;
   }
   .footer-cake {
     padding: 0;
@@ -376,6 +391,12 @@ footer .header span {
     width: 70%;
   }
   .footer-links {
+    width: 30%;
+  }
+}
+
+@media (min-width: 960px) {
+  .cake-card {
     width: 30%;
   }
 }
