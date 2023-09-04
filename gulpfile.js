@@ -9,7 +9,7 @@ function minifyJS() {
     .pipe(terser({ toplevel: true }))
     .pipe(concat("main.js")) // not really necessary as one js file
     .pipe(sourcemaps.write("./"))
-    .pipe(dest("build/"))
+    .pipe(dest("docs/"))
 }
 
 function minifyCSS() {
@@ -18,7 +18,7 @@ function minifyCSS() {
       inline: true,
       base: "./",
       src: "index.html",
-      dest: "build/index.html",
+      dest: "docs/index.html",
       minify: true,
       width: 320,
       height: 480,

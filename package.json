@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "critical": "^5.1.1",
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-sourcemaps": "^3.0.0",
